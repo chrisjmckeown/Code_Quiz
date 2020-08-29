@@ -36,7 +36,7 @@ var questionList = [
     },
 ];
 
-var secondsElapsed = 10;
+var secondsElapsed = 30;
 var interval;
 var questionIndex = 0;
 var complete;
@@ -47,7 +47,7 @@ startQuiz();
 
 function startQuiz() {
     complete = false;
-    secondsElapsed = 10;
+    secondsElapsed = 30;
     timeId.textContent = secondsElapsed;
     startTimer();
     displayQuestion();
@@ -101,7 +101,7 @@ function timeEnded(state) {
     
     var user = {
         score: correct,
-        time: secondsElapsed,
+        time: secondsElapsed + 1,
     };
     localStorage.setItem("user", JSON.stringify(user));
     window.location.href = "savedScore.html";

@@ -221,3 +221,8 @@ li button:hover {
 .quiz li button:hover {
   background-color: var(--card-colour);
 }
+
+#input{
+ background-color: var(--body-colour);
+ color: black;
+}

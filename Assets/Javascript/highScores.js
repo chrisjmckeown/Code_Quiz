@@ -33,8 +33,7 @@ function render() {
         var message =
             i + ": " +
             highScores[i].userName + " - Score: " +
-            highScores[i].score + " - Time: " +
-            highScores[i].time;
+            highScores[i].score;
 
         var li = document.createElement("li");
         li.textContent = message;
@@ -76,7 +75,6 @@ function addHighScores(event) {
     var user = {
         userName: "Chris",
         score: 10,
-        time: 22,
     };
 
     // Add new user to highScores array, clear the input
