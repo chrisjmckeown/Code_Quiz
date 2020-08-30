@@ -5,11 +5,18 @@ var startQuizBtn = document.querySelector("#start-Quiz");
 var viewScoresBtn = document.querySelector("#view-Scores");
 var retakeTestBtn = document.querySelector("#retake-Test");
 var clearHighScoresBtn = document.querySelector("#clear-High-Scores");
+var adminBtn = document.querySelector("#edit-Questions");
+var addQuestionBtn = document.querySelector("#add-question");
+var resetQuestionBtn = document.querySelector("#reset-question");
+var saveQuestionBtn = document.querySelector("#save-question");
+var addOptionBtn = document.querySelector("#add-option");
+var cancelQuestionBtn = document.querySelector("#cancel-question");
 //pages
 var startPageEl = document.querySelector("#start");
 var highScoresPageEl = document.querySelector("#high-Scores");
 var quizPageEl = document.querySelector("#quiz");
 var savePageEl = document.querySelector("#save");
+var adminPageEl = document.querySelector("#admin-Questions");
 // Elements
 var highScoresCountId = document.querySelector("#high-Scores-Count");
 var highScoresListId = document.querySelector("#high-Scores-List");
@@ -17,65 +24,18 @@ var timeId = document.querySelector("#time");
 var questionId = document.querySelector("#question");
 var optionsId = document.querySelector("#options");
 var feedbackId = document.querySelector("#feedback");
+var modalId = document.querySelector(".modal");
+var newQuestionId = document.querySelector("#new-question");
+var optionListId = document.querySelector("#option-list");
+var newAnswerId = document.querySelector("#new-answer");
 
-// first function called to setup the page
-setPage("start");
+
+var questionListId = document.querySelector("#question-List");
 
 // Variables
 var highScores = [];
 
-// function that turns on and off div's depending on the page required.
-function setPage(page) {
-    clearInterval(interval);
-    switch (page) {
-        case "start":
-            startPageEl.style.display = "block";
-            highScoresPageEl.style.display = "none";
-            quizPageEl.style.display = "none";
-            savePageEl.style.display = "none";
-            break;
-        case "quiz":
-            startPageEl.style.display = "none";
-            highScoresPageEl.style.display = "none";
-            quizPageEl.style.display = "block";
-            savePageEl.style.display = "none";
-            startQuiz();
-            break;
-        case "save":
-            startPageEl.style.display = "none";
-            highScoresPageEl.style.display = "none";
-            quizPageEl.style.display = "none";
-            savePageEl.style.display = "block";
-            initSave();
-            break;
-        default: //highscore
-            startPageEl.style.display = "none";
-            highScoresPageEl.style.display = "block";
-            quizPageEl.style.display = "none";
-            savePageEl.style.display = "none";
-            initHighScores();
-    }
-};
-
-// #region global events
-viewScoresBtn.addEventListener("click", viewScores);
-function viewScores() {
-    setPage("highscore");
-}
-// #endregion
-
-// #region start
-//start listener
-startQuizBtn.addEventListener("click", startPage);
-function startPage() {
-    // set the quiz page up ready for test
-    setPage("quiz");
-}
-//#endregion
-
-// #region quiz
-
-// List of questions
+var questionListDefault;
 var questionList = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -104,8 +64,78 @@ var questionList = [
     },
 ];
 
+// first function called to setup the page
+setPage("start");
+
+// function that turns on and off div's depending on the page required.
+function setPage(page) {
+    questionListDefault = [...questionList];
+    clearInterval(interval);
+    switch (page) {
+        case "start":
+            startPageEl.style.display = "block";
+            highScoresPageEl.style.display = "none";
+            quizPageEl.style.display = "none";
+            savePageEl.style.display = "none";
+            adminPageEl.style.display = "none";
+            break;
+        case "quiz":
+            startPageEl.style.display = "none";
+            highScoresPageEl.style.display = "none";
+            quizPageEl.style.display = "block";
+            savePageEl.style.display = "none";
+            adminPageEl.style.display = "none";
+            startQuiz();
+            break;
+        case "save":
+            startPageEl.style.display = "none";
+            highScoresPageEl.style.display = "none";
+            quizPageEl.style.display = "none";
+            savePageEl.style.display = "block";
+            adminPageEl.style.display = "none";
+            initSave();
+            break;
+        case "admin":
+            startPageEl.style.display = "none";
+            highScoresPageEl.style.display = "none";
+            quizPageEl.style.display = "none";
+            savePageEl.style.display = "none";
+            adminPageEl.style.display = "block";
+            initQuestion();
+            break;
+        default: //highscore
+            startPageEl.style.display = "none";
+            highScoresPageEl.style.display = "block";
+            quizPageEl.style.display = "none";
+            savePageEl.style.display = "none";
+            adminPageEl.style.display = "none";
+            initHighScores();
+    }
+};
+
+// #region global events
+viewScoresBtn.addEventListener("click", viewScores);
+function viewScores() {
+    setPage("highscore");
+}
+// #endregion
+
+// #region start
+//start listener
+startQuizBtn.addEventListener("click", startPage);
+function startPage() {
+    // set the quiz page up ready for test
+    setPage("quiz");
+}
+//#endregion
+
+// #region quiz
+
+// List of questions
+
 // Quiz variables
-var totalTime = 30
+var secondsPerQuestion = 6;
+var totalTime;
 var secondsElapsed;
 var interval;
 var questionIndex;
@@ -118,6 +148,14 @@ optionsId.addEventListener("click", answerSelected);
 
 // Function to set up the quiz, set complete to false, seconds and visual counter to 30
 function startQuiz() {
+    // leaving code for future development of storing questions in localStorage
+    var storedQuestionList = JSON.parse(localStorage.getItem("questionList"));
+    // check contents, if not null set to variable highscore to list else if null to empty
+    if (storedQuestionList !== null) {
+        questionList = storedQuestionList;
+    }
+
+    totalTime = questionList.length * secondsPerQuestion
     secondsElapsed = totalTime;
     timeId.textContent = totalTime;
     questionIndex = 0;
@@ -297,10 +335,12 @@ function addHighScores(event) {
 // #endregion
 
 // #region highscore
+
 //high scores listeners
 clearHighScoresBtn.addEventListener("click", clearHighScores);
 highScoresListId.addEventListener("click", highScoresListClick);
 retakeTestBtn.addEventListener("click", retakeTest);
+adminBtn.addEventListener("click", adminClick);
 
 // Function called to setup highScores page, get local storage and render the page
 function initHighScores() {
@@ -348,7 +388,6 @@ function renderHighScores() {
 
         // Create element, set text, set data index (for individual removal) and append to ul
         var li = document.createElement("li");
-        li.textContent = message;
         li.setAttribute("data-index", i);
         highScoresListId.appendChild(li);
 
@@ -356,7 +395,10 @@ function renderHighScores() {
         var button = document.createElement("button");
         button.textContent = "Remove";
         li.appendChild(button);
-        highScoresListId.appendChild(li);
+        // add text in a span for styling button to the right
+        var span = document.createElement("span");
+        span.textContent = message;
+        li.appendChild(span);
     }
 }
 
@@ -381,4 +423,208 @@ function highScoresListClick(event) {
 function retakeTest() {
     setPage("start");
 }
+
+// set the admin page. A page to add, remove, edit questions, options and answer, just for fun ;)
+function adminClick() {
+    setPage("admin");
+}
+// #endregion
+
+// #region admin
+
+questionListId.addEventListener("click", questionListClick);
+addQuestionBtn.addEventListener("click", addQuestion);
+resetQuestionBtn.addEventListener("click", resetQuestion);
+saveQuestionBtn.addEventListener("click", saveQuestion);
+addOptionBtn.addEventListener("click", addOption);
+cancelQuestionBtn.addEventListener("click", cancelQuestion);
+
+// Function called to setup question page, get local storage and render the page
+function initQuestion() {
+
+    // Get from local storage
+    var storedQuestionList = JSON.parse(localStorage.getItem("questionList"));
+    // check contents, if not null set to variable question to list else if null to empty
+    if (storedQuestionList !== null) {
+        questionList = storedQuestionList;
+    }
+    //call function to render the Admin page
+    renderQuestions();
+}
+
+// Save "Questions" in localStorage
+function storeQuestions() {
+    // Set to local storage
+    localStorage.setItem("questionList", JSON.stringify(questionList));
+}
+
+// Clear all Questions from localStorage and render page
+function resetQuestions() {
+    //set variable highscores to empty, then store and render
+
+    questionList = [...questionListDefault];
+    storeQuestions();
+    renderQuestions();
+}
+
+// Renders the Questions page
+function renderQuestions() {
+    // Clear question element
+    questionListId.innerHTML = "";
+
+    // Render a new li for each question
+    for (var i = 0; i < questionList.length; i++) {
+        // Create element, set text, set data index (for individual removal) and append to ul
+        var li = document.createElement("li");
+        li.setAttribute("data-index", i);
+        questionListId.appendChild(li);
+
+        // Create a button for edit and delete and add to list item
+        var buttonEdit = document.createElement("button");
+        buttonEdit.textContent = "Edit";
+        li.appendChild(buttonEdit);
+        var buttonDelete = document.createElement("button");
+        buttonDelete.textContent = "Delete";
+        li.appendChild(buttonDelete);
+        // add text in a span for styling button to the right
+        var span = document.createElement("span");
+        span.textContent = questionList[i].question;
+        li.appendChild(span);
+    }
+}
+
+// When a element inside of the QuestionsList is clicked...
+function questionListClick(event) {
+    // Get the target element
+    var element = event.target;
+
+    // If that element is a button...            
+    var index = element.parentElement.getAttribute("data-index");
+    if (element.matches("button") === true) {
+        // check if button was edit or delete
+        if (element.innerHTML === "Edit") {
+            var quest = questionList[index];
+            editQuestion(quest); // edit
+        }
+        else if (element.innerHTML === "Delete") {
+            // Get its data-index value and remove the Questions element from the list
+            questionList.splice(index, 1); //delete
+        }
+
+        // Store updated Questions in localStorage, render the page
+        storeQuestions();
+        renderQuestions();
+    }
+}
+
+// add a new question to the list
+function editQuestion(quest) {
+    modalId.style.display = "block";
+    // clear the list, question and answer inputs
+    optionListId.innerHTML = "";
+    newQuestionId.value = "";
+    newAnswerId.value = "";
+    // set the values for Question and Answer based on past in value
+    newQuestionId.value = quest.question;
+    newAnswerId.value = quest.answer;
+    // foreach option, create a list item
+    for (var i = 0; i < quest.options.length; i++) {
+        var li = document.createElement("li");
+        optionListId.appendChild(li);
+        var input = document.createElement("input");
+        input.value = quest.options[i]
+        li.appendChild(input);
+    }
+}
+
+// add a new question to the list
+function addQuestion() {
+    log(questionList);
+    // clear the list, question and answer inputs
+    modalId.style.display = "block";
+    optionListId.innerHTML = "";
+    newQuestionId.value = "";
+    newAnswerId.value = "";
+    // add two options, must be at least two possible answers to make a questions ;)
+    addOption();
+    addOption();
+}
+
+// reset the question list to the defaults
+function resetQuestion() {
+    resetQuestions();
+    alert("Questions reset");
+}
+
+// save the question list to the defaults
+function saveQuestion() {
+    // create variables
+    var newQuestion = newQuestionId.value;
+    var optionList = [];
+    var newAnswer = newAnswerId.value;
+
+    //run checks to make sure inputs are ok
+    // get the contents of the list
+    for (i = 0; i < optionListId.children.length; i++) {
+        var value = optionListId.children[i].firstChild.value;
+        // don't allow any blank values
+        if (value === "") {
+            alert("Potential answers can not be blank.");
+            return;
+        }
+        optionList.push(value);
+    }
+    // don't allow any blank question or answer
+    if (newQuestion === "" || newAnswer === "") {
+        alert("Question or Answer can not be blank.");
+        return;
+    }
+    var inc = optionList.includes(newAnswer);
+    if (inc === false) {
+        alert("Answer must match one question.");
+        return;
+    }
+
+    // check/find an existing question in the list
+    var temp = questionList.find(x => x.question === newQuestion);
+    // if found then update the existing question, else create an new
+    if (temp === undefined) {
+        // Add new question to questionList array, clear the input
+        var question = {
+            question: newQuestion,
+            options: optionList,
+            answer: newAnswer,
+        }
+        questionList.push(question);
+        log("new question: " + question);
+    }
+    else {
+        // update existing question
+        temp.options = optionList;
+        temp.answer = newAnswer;
+        log("update question: " + temp);
+    }
+
+    // store and render the page
+    storeQuestions();
+    renderQuestions();
+    // hide the modal part of the page
+    modalId.style.display = "none";
+    log(questionList);
+}
+
+// add a possible answer
+function addOption() {
+    // create a list item and render to the page along with input field
+    var li = document.createElement("li");
+    optionListId.appendChild(li);
+    var input = document.createElement("input");
+    li.appendChild(input);
+}
+
+// cancel, hide the modal div
+function cancelQuestion() {
+    modalId.style.display = "none";
+}
+
 // #endregion

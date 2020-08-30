@@ -10,7 +10,7 @@ This is a timed multiple-choice quiz on JavaScript fundamentals that stores the 
 
 Compare score with your peers.
 
-This app runs in the browser and featuring dynamically updated HTML and CSS powered by JavaScript. It includes the use of localStorage to save highest scores
+This app runs in the browser and featuring dynamically updated HTML and CSS powered by JavaScript. It includes the use of localStorage to save highest scores.
 
 It features a clean and polished user responsive interface, adapting to 992, 768, and 400 wide screens and wider screen sizes.
 

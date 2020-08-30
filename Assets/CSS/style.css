@@ -14,7 +14,6 @@
 *::after {
   /* Width and height apply to all parts of the element: content, padding and borders */
   box-sizing: border-box;
-  color: var(--text-colour);
 }
 
 /* general classes / controls */
@@ -42,6 +41,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  color: var(--text-colour);
 }
 
 body {
@@ -102,6 +102,7 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  color: var(--text-colour);
 }
 
 .secondary-btn {
@@ -110,10 +111,12 @@ header {
   border-radius: 5px;
   display: inline-block;
   font-size: 0.75rem;
-  margin: 16px 16px 16px 20px;
+  margin: 16px 0px;
   padding: 8px 8px;
   text-align: center;
   cursor: pointer;
+  width: 150px;
+  color: var(--text-colour);
 }
 
 .primary-btn:hover, .secondary-btn:hover{
@@ -126,7 +129,7 @@ ul {
 }
 
 li {
-  height: 25px;
+  height: auto;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
@@ -135,13 +138,27 @@ li {
   font-size: 0.75rem;
 }
 
-li button {
-  float: right;
+li span{
+  margin-left: 90px;
+  display: block;
+}
+
+li button {  
+  float: left;
+  display: block;
+  margin-right: 5px;
   border: none;
-  height: 17px;
   cursor: pointer;
   background-color: var(--buttons);
   font-size: 0.75rem;
+  color: var(--text-colour);
+}
+
+li input {
+  border: none;
+  height: 17px;
+  font-size: 0.75rem;
+  width: 100%;
 }
 
 li button:hover {
@@ -170,7 +187,7 @@ li button:hover {
 }
 
 .options li {
-  height: 25px;
+  height: auto;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
@@ -181,6 +198,11 @@ li button:hover {
 
 .options li:hover {
   background-color: var(--card-colour);
+}
+
+.modal {
+  display: none;  
+  color: var(--text-colour);
 }
 
 @media (max-width: 768px) {

@@ -54,6 +54,36 @@
                     <ul id="high-Scores-List"></ul>
                     <button id="retake-Test" class="secondary-btn">Retake test</button>
                     <button id="clear-High-Scores" class="secondary-btn">Clear High Scores</button>
+                    <button id="edit-Questions" class="secondary-btn">Admin</button>
+                </div>
+                <div id="admin-Questions" class="card-alignleft">
+                    <ul id="question-List"></ul>
+                    <button id="add-question" class="secondary-btn">Add</button>
+                    <button id="reset-question" class="secondary-btn">Reset</button>
+
+
+                    <div id="modal-container" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h3>
+                                    Description:
+                                </h3>
+                                <textarea id="new-question" cols="60" rows="5"></textarea>
+                                <ul id="option-list"></ul>
+                                <div>
+                                    <label class="input">Answer</label>
+                                    <input id="new-answer" type="text" checked />
+                                </div>
+                                <div>
+                                    <button id="add-option" class="secondary-btn">Add</button>
+                                </div>
+                                <div>
+                                    <button id="save-question" class="secondary-btn">Save</button>
+                                    <button id="cancel-question" class="secondary-btn">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
