@@ -58,6 +58,7 @@ body {
 /* Header */
 header {
   text-align: center;
+  font-size: 1.2rem;
   padding: 20px;
   padding-top: 0px;
 }
@@ -75,7 +76,7 @@ header {
   background-color:var(--card-colour);
   border-radius: 25px;
   box-shadow: var(--shadow) 0px 2px 8px 0px;
-  font-size: 20px;
+  font-size: 1.2rem;
   margin: 0 auto;
   max-width: 800px;
   padding: 10px 40px;
@@ -91,15 +92,12 @@ header {
   text-align: left;
 }
 
-/* Start settings */
+/* Primary and secondary buttons */
 .primary-btn {
   border: none;
-  background-color: #b9936c;
-  border-radius: 25px;
-  box-shadow: var(--shadow) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  font-size: 22px;
-  line-height: 22px;
+  background-color: var(--buttons);
+  border-radius: 10px;
+  font-size: 1.2rem;
   margin: 16px 16px 16px 20px;
   padding: 14px 34px;
   text-align: center;
@@ -108,17 +106,18 @@ header {
 
 .secondary-btn {
   border: none;
-  background-color: #b9936c;
+  background-color: var(--buttons);
   border-radius: 5px;
-  box-shadow: var(--shadow) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
   display: inline-block;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 0.75rem;
   margin: 16px 16px 16px 20px;
   padding: 8px 8px;
   text-align: center;
   cursor: pointer;
+}
+
+.primary-btn:hover, .secondary-btn:hover{
+  background-color: var(--other);
 }
 
 ul {
@@ -133,7 +132,7 @@ li {
   padding: 5px;
   background-color: var(--other);
   line-height: 1.5;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 li button {
@@ -142,7 +141,7 @@ li button {
   height: 17px;
   cursor: pointer;
   background-color: var(--buttons);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 li button:hover {
@@ -151,26 +150,22 @@ li button:hover {
 
 /* Quiz settings */
 
-.quiz {
-  font-size: 5px;
-}
-
 .question {
   float: left;
   height: 100%;
-  width: 50%;
-  font-size: 15px;
+  width: 70%;
+  font-size: 1.1rem;
 }
 .options {
   height: 100%;
-  width: 50%;
+  width: 30%;
   float: left;
 }
 .feedback {
   display: block;
   clear: both;
   height: 30px;
-  font-size: 15px;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -181,10 +176,23 @@ li button:hover {
   padding: 5px;
   background-color: var(--buttons);
   line-height: 1.5;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .options li:hover {
   background-color: var(--card-colour);
 }
 
+@media (max-width: 768px) {
+  .primary-btn {
+    font-size: 1rem;
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .primary-btn {
+    font-size: 0.8rem;
+  }
+}

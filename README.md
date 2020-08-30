@@ -6,26 +6,30 @@
 * [Contact](#Contact)
 
 ## Description
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This is a timed multiple-choice quiz on JavaScript fundamentals that stores the highest scores.
 
+Compare score with your peers.
 
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+This app runs in the browser and featuring dynamically updated HTML and CSS powered by JavaScript. It includes the use of localStorage to save highest scores
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+It features a clean and polished user responsive interface, adapting to 992, 768, and 400 wide screens and wider screen sizes.
 
-![Code Quiz](./Assets/Images/04-web-apis-homework-demo.gif)
+The test:
+* Click the start button
+* A timer starts
+* Questions are presented
+* Each correct answer score a point
+* Each incorrect answer lose 2 seconds
+* Quiz is over when either all questions are answered or the timer reaches 0
+* Enter your initials to save your score, your highest score is kept
+* Clear the high score list
+
+<img src="./Assets/Images/1-Start.jpg" alt="Start Page" width="450" vertical-align="text-top" style="vertical-align:top">
+<img src="./Assets/Images/2-Question.jpg" alt="Example Question Page" width="450" vertical-align="text-top" style="vertical-align:top">
+<br/>
+<br/>
+<img src="./Assets/Images/3-Complete.jpg" alt="Complete Page" width="450" vertical-align="text-top" style="vertical-align:top">
+<img src="./Assets/Images/4-Highscores.jpg" alt="Highscores Page" width="450" vertical-align="text-top" style="vertical-align:top">
 
 ## Technologies Utilized
 Primary technologies:
