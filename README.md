@@ -24,12 +24,10 @@ The test:
 * Enter your initials to save your score, your highest score is kept
 * Clear the high score list
 
-<img src="./Assets/Images/1-Start.jpg" alt="Start Page" width="350" vertical-align="text-top" style="vertical-align:top">
-<img src="./Assets/Images/2-Question.jpg" alt="Example Question Page" width="350" vertical-align="text-top" style="vertical-align:top">
-<br/>
-<br/>
-<img src="./Assets/Images/3-Complete.jpg" alt="Complete Page" width="350" vertical-align="text-top" style="vertical-align:top">
-<img src="./Assets/Images/4-Highscores.jpg" alt="Highscores Page" width="350" vertical-align="text-top" style="vertical-align:top">
+|  |  |
+| ------------- | ------------- |
+| <img src="./Assets/Images/1-Start.jpg" alt="Start Page" width="350" vertical-align="text-top" style="vertical-align:top"> | <img src="./Assets/Images/2-Question.jpg" alt="Example Question Page" width="350" vertical-align="text-top" style="vertical-align:top"> |
+| <img src="./Assets/Images/3-Complete.jpg" alt="Complete Page" width="350" vertical-align="text-top" style="vertical-align:top"> | <img src="./Assets/Images/4-Highscores.jpg" alt="Highscores Page" width="350" vertical-align="text-top" style="vertical-align:top"> |
 
 ## Technologies Utilized
 Primary technologies:
