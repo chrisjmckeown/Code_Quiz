@@ -125,7 +125,7 @@ function startQuiz() {
     correct = 0;
     wrong = 0;
     // Start timer and display first question
-    //startTimer();
+    startTimer();
     displayQuestion();
 };
 
@@ -265,7 +265,7 @@ function addHighScores(event) {
     event.preventDefault();
     // get the input user name and trim it
     var tempUserName = (inputId.value).trim();
-    var timeTaken = parseInt( timeId.textContent);
+    var timeTaken = parseInt(timeId.textContent);
 
     // create the user object
     var user = {
