@@ -15,19 +15,46 @@
         </header>
         <div class="card">
             <div class="card-header">
-                <div class="card-viewscores float-left">
-                    <p><a href="highScores.html">View High Scores</a></p>
+                <div id="card-viewscores" class="float-left pointer">
+                    <p id="view-Scores">View High Scores</p>
                 </div>
-                <div class="card-timer float-right">
+                <div id="card-timer" class="float-right">
                     <p>Time: <span id="time">00</span></p>
                 </div>
             </div>
             <div class="card-body">
-                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
-                    answers will penalize your score/time by ten seconds!</p>
-            </div>
-            <div class="card-footer">
-                <button id="start-Quiz" class="btn">Start Quiz</button>
+                <div id="start" class="card-aligncenter">
+                    <p>
+                        Try to answer the following code-related questions within the time limit. Keep in mind that
+                        incorrect
+                        answers will penalize your score/time by ten seconds!
+                    </p>
+                    <button id="start-Quiz" class="primary-btn">Start Quiz</button>
+                </div>
+                <div id="quiz" class="card-alignleft quiz">
+                    <div class="question">
+                        <h3 id="question"></h3>
+                    </div>
+                    <div class="options">
+                        <ul id="options"></ul>
+                    </div>
+                    <div class="feedback">
+                        <p id="feedback"></p>
+                    </div>
+                </div>
+                <div id="save" class="card-alignleft">
+                    <p>All done!</p>
+                    <p>Your final score is: <span id="score">00</span></p>
+                    <label>Enter initials</label>
+                    <input id="input">
+                    <button id="submit" class="secondary-btn">Submit</button>
+                </div>
+                <div id="high-Scores" class="card-alignleft">
+                    <p>High Scores Count: <span id="high-Scores-Count">0</span></p>
+                    <ul id="high-Scores-List"></ul>
+                    <button id="retake-Test" class="secondary-btn">Retake test</button>
+                    <button id="clear-High-Scores" class="secondary-btn">Clear High Scores</button>
+                </div>
             </div>
         </div>
     </div>

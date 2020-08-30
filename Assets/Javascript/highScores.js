@@ -6,7 +6,6 @@ var clearHighScoresId = document.querySelector("#clear-High-Scores");
 var addHighScoresId = document.querySelector("#add-High-Scores");
 
 //Elements
-var highScoresId = document.querySelector("#high-Scores-list");
 var highScoresCountId = document.querySelector("#high-Scores-count");
 var highScoresListId = document.querySelector("#high-Scores-list");
 
@@ -25,7 +24,7 @@ function init() {
 
 function render() {
     // Clear high Scores element
-    highScoresId.innerHTML = "";
+    highScoresListId.innerHTML = "";
     highScoresCountId.textContent = highScores.length;
 
     // Render a new li for each high score
@@ -38,13 +37,13 @@ function render() {
         var li = document.createElement("li");
         li.textContent = message;
         li.setAttribute("data-index", i);
-        highScoresId.appendChild(li);
+        highScoresListId.appendChild(li);
 
         var button = document.createElement("button");
         button.textContent = "Remove";
 
         li.appendChild(button);
-        highScoresId.appendChild(li);
+        highScoresListId.appendChild(li);
     }
 }
 
