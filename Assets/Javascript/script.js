@@ -281,7 +281,7 @@ function answerSelected(event) {
 var submitId = document.querySelector("#submit");
 
 //Elements
-var inputId = document.querySelector("#input");
+var inputId = document.querySelector("#initials-input");
 var scoreId = document.querySelector("#score");
 
 //quiz listeners

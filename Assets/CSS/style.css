@@ -4,6 +4,7 @@
   --body-colour:#e6e2d3;
   --card-colour:#dac292;
   --buttons:#b9936c;
+  --buttons-hover: rgb(104, 93, 75);
   --other:#c4b7a6;
   --text-colour:#ffffff;
   --shadow:  rgba(0, 0, 0, 0.15);
@@ -79,6 +80,7 @@ header {
   font-size: 1.2rem;
   margin: 0 auto;
   max-width: 800px;
+  /* min-height: 500px; */
   padding: 10px 40px;
 }
 
@@ -120,7 +122,7 @@ header {
 }
 
 .primary-btn:hover, .secondary-btn:hover{
-  background-color: var(--other);
+  background-color: var(--buttons-hover);
 }
 
 ul {
@@ -162,26 +164,21 @@ li input {
 }
 
 li button:hover {
-  background-color: var(--card-colour);
+  background-color: var(--buttons-hover);
 }
 
 /* Quiz settings */
 
 .question {
-  float: left;
-  height: 100%;
-  width: 70%;
+  min-height: 40px;
+  width: 100%;
   font-size: 1.1rem;
 }
 .options {
-  height: 100%;
-  width: 30%;
-  float: left;
+  min-height:150px;
 }
 .feedback {
-  display: block;
-  clear: both;
-  height: 30px;
+  min-height: 20px;
   font-size: 1rem;
   text-align: center;
 }
@@ -197,12 +194,16 @@ li button:hover {
 }
 
 .options li:hover {
-  background-color: var(--card-colour);
+  background-color: var(--buttons-hover);
 }
 
 .modal {
   display: none;  
   color: var(--text-colour);
+}
+
+.input, .new-question {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -216,5 +217,23 @@ li button:hover {
 @media (max-width: 400px) {
   .primary-btn {
     font-size: 0.8rem;
+  }
+  .secondary-btn {
+    display: block;
+  }
+
+  li span{
+    /* margin-left: 40px; */
+    display: block;
+  }
+
+  li button {  
+    display: inline;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--buttons);
+    font-size: 0.75rem;
+    color: var(--text-colour);
   }
 }
