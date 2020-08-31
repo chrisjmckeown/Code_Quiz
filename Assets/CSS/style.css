@@ -37,8 +37,7 @@
 
 /* body and wrapper */
 html,
-body,
-.wrapper {
+body{
   height: 100%;
   margin: 0;
   padding: 0;
@@ -50,17 +49,22 @@ body {
   background-color: var(--body-colour);
 }
 
+h1{
+  margin: 5px;
+}
+
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 60px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 10px;
 }
 
 /* Header */
 header {
   text-align: center;
   font-size: 1.2rem;
-  padding: 20px;
+  padding: 0px;
   padding-top: 0px;
 }
 
@@ -80,8 +84,7 @@ header {
   font-size: 1.2rem;
   margin: 0 auto;
   max-width: 800px;
-  /* min-height: 500px; */
-  padding: 10px 40px;
+  padding: 20px;
 }
 
 .card-aligncenter {
@@ -125,6 +128,7 @@ header {
   background-color: var(--buttons-hover);
 }
 
+/* list modifications */
 ul {
   list-style-type: none;
   padding: 0;
@@ -197,6 +201,7 @@ li button:hover {
   background-color: var(--buttons-hover);
 }
 
+/* Admin question settings */
 .modal {
   display: none;  
   color: var(--text-colour);
@@ -206,7 +211,24 @@ li button:hover {
   width: 100%;
 }
 
+/* media adjustments to work on phone, ipad and PC */
+@media (max-width: 1024px) {
+  .wrapper {
+    padding-top: 60px;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom: 10px;
+  }
+}
+
 @media (max-width: 768px) {
+  .wrapper {
+    padding-top: 60px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 10px;
+  }
+
   .primary-btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
@@ -214,26 +236,32 @@ li button:hover {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 550px) {
+  .wrapper {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+  }
+
+  .view-Scores{
+    width: 90px;
+  }
+
   .primary-btn {
     font-size: 0.8rem;
+    width: 100%;
   }
   .secondary-btn {
     display: block;
-  }
-
-  li span{
-    /* margin-left: 40px; */
-    display: block;
+    width: 100%;
   }
 
   li button {  
-    display: inline;
-    margin-right: 5px;
-    border: none;
-    cursor: pointer;
-    background-color: var(--buttons);
-    font-size: 0.75rem;
-    color: var(--text-colour);
+    font-size: 0.6rem;
+  }
+
+  li span{
+    font-size: 0.6rem;
   }
 }

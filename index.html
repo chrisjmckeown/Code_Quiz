@@ -11,12 +11,12 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1>Coding Quiz Challenge</h1>
+            <h1  id="retake-Test">Coding Quiz Challenge</h1>
         </header>
         <div class="card">
             <div class="card-header">
                 <div id="card-viewscores" class="float-left pointer">
-                    <p id="view-Scores">View High Scores</p>
+                    <p id="view-Scores" class="view-Scores">View High Scores</p>
                 </div>
                 <div id="card-timer" class="float-right">
                     <p>Time: <span id="time">00</span></p>
@@ -69,13 +69,13 @@
                                     Description:
                                 </h3>
                                 <textarea id="new-question" class="new-question" rows="5"></textarea>
+                                <div>
+                                    <button id="add-option" class="secondary-btn">Add Possible Answer</button>
+                                </div>
                                 <ul id="option-list"></ul>
                                 <div>
                                     <label class="input">Answer</label>
                                     <input id="new-answer" class="input" type="text"/>
-                                </div>
-                                <div>
-                                    <button id="add-option" class="secondary-btn">Add</button>
                                 </div>
                                 <div>
                                     <button id="save-question" class="secondary-btn">Save</button>
