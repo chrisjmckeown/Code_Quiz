@@ -4,6 +4,7 @@ var dir = console.dir;
 var startQuizBtn = document.querySelector("#start-Quiz");
 var viewScoresBtn = document.querySelector("#view-Scores");
 var retakeTestBtn = document.querySelector("#retake-Test");
+var retakeTestHeaderBtn = document.querySelector("#retake-Test-Header");
 var clearHighScoresBtn = document.querySelector("#clear-High-Scores");
 var adminBtn = document.querySelector("#edit-Questions");
 var addQuestionBtn = document.querySelector("#add-question");
@@ -340,6 +341,7 @@ function addHighScores(event) {
 clearHighScoresBtn.addEventListener("click", clearHighScores);
 highScoresListId.addEventListener("click", highScoresListClick);
 retakeTestBtn.addEventListener("click", retakeTest);
+retakeTestHeaderBtn.addEventListener("click", retakeTest);
 adminBtn.addEventListener("click", adminClick);
 
 // Function called to setup highScores page, get local storage and render the page
