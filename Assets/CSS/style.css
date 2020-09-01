@@ -237,6 +237,10 @@ li button:hover {
 }
 
 @media (max-width: 550px) {
+  h1{
+    font-size: 1.7rem;
+  }
+  
   .wrapper {
     padding-top: 10px;
     padding-left: 30px;
@@ -244,6 +248,9 @@ li button:hover {
     padding-bottom: 10px;
   }
 
+  .card {
+    font-size: 1rem;
+  }
   .view-Scores{
     width: 90px;
   }
