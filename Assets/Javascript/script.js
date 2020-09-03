@@ -102,6 +102,7 @@ function setPage(page) {
             quizPageEl.style.display = "none";
             savePageEl.style.display = "none";
             adminPageEl.style.display = "block";
+            modalId.style.display = "none";
             initQuestion();
             break;
         default: //highscore
