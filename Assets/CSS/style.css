@@ -211,16 +211,20 @@ li button:hover {
 
 /* styling the footer */
 .footer{
-  margin: 0 auto;
-  max-width: 800px;
   width: 100%;
   position: fixed;
   bottom: 0px;
-  background-color: var(--card-colour);
 }
+
 /* setting footer styles */
 .copyright-social-media {
-  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  height: 40px;
+  background-color: var(--card-colour);
+  display: flex;
+  justify-content: center; /* For horizontal alignment */
+  align-items: center; /* For vertical alignment */
 }
 
 /* social media div */
@@ -229,7 +233,8 @@ li button:hover {
   color: white;
 }
 .footer .copyright-social-media a{
-  padding-right:10px;
+  padding-left: 10px;
+  text-decoration: none;
 }
 .footer .copyright-social-media a:hover{
   color: black;
