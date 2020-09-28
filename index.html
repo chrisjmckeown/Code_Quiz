@@ -5,88 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <title>Coding Quiz Challenge</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <header>
-            <h1  id="retake-Test-Header" class="pointer">Coding Quiz Challenge</h1>
+        <!-- Semantic header -->
+        <header class="header">
+            <h1 id="retake-Test-Header" class="pointer">Coding Quiz Challenge</h1>
         </header>
-        <div class="card">
-            <div class="card-header">
-                <div id="card-viewscores" class="float-left pointer">
-                    <p id="view-Scores" class="view-Scores">View High Scores</p>
-                </div>
-                <div id="card-timer" class="float-right">
-                    <p>Time: <span id="time">00</span></p>
-                </div>
-            </div>
-            <div class="card-body">
-                <div id="start" class="card-aligncenter">
-                    <p>
-                        Try to answer the following code-related questions within the time limit. Keep in mind that
-                        incorrect
-                        answers will penalize your score/time by 2 seconds!
-                    </p>
-                    <button id="start-Quiz" class="primary-btn">Start Quiz</button>
-                </div>
-                <div id="quiz" class="card-alignleft quiz">
-                    <div class="question">
-                        <p id="question"></p>
+        <!-- Semantic main -->
+        <main class="main">
+            <div class="card">
+                <div class="card-header">
+                    <div id="card-viewscores" class="float-left pointer">
+                        <p id="view-Scores" class="view-Scores">View High Scores</p>
                     </div>
-                    <div class="options">
-                        <ul id="options"></ul>
-                    </div>
-                    <div class="feedback">
-                        <p id="feedback"></p>
+                    <div id="card-timer" class="float-right">
+                        <p>Time: <span id="time">00</span></p>
                     </div>
                 </div>
-                <div id="save" class="card-alignleft">
-                    <p>All done!</p>
-                    <p>Your final score is: <span id="score">00</span></p>
-                    <label>Enter initials</label>
-                    <input id="initials-input" class="input" >
-                    <button id="submit" class="secondary-btn">Submit</button>
-                </div>
-                <div id="high-Scores" class="card-alignleft">
-                    <p>High Scores Count: <span id="high-Scores-Count">0</span></p>
-                    <ul id="high-Scores-List"></ul>
-                    <button id="retake-Test" class="secondary-btn">Retake test</button>
-                    <button id="clear-High-Scores" class="secondary-btn">Clear High Scores</button>
-                    <button id="edit-Questions" class="secondary-btn">Admin</button>
-                </div>
-                <div id="admin-Questions" class="card-alignleft">
-                    <ul id="question-List"></ul>
-                    <button id="add-question" class="secondary-btn">Add</button>
-                    <button id="reset-question" class="secondary-btn">Reset</button>
+                <div class="card-body">
+                    <div id="start" class="card-aligncenter">
+                        <p>
+                            Try to answer the following code-related questions within the time limit. Keep in mind that
+                            incorrect
+                            answers will penalize your score/time by 2 seconds!
+                        </p>
+                        <button id="start-Quiz" class="primary-btn">Start Quiz</button>
+                    </div>
+                    <div id="quiz" class="card-alignleft quiz">
+                        <div class="question">
+                            <p id="question"></p>
+                        </div>
+                        <div class="options">
+                            <ul id="options"></ul>
+                        </div>
+                        <div class="feedback">
+                            <p id="feedback"></p>
+                        </div>
+                    </div>
+                    <div id="save" class="card-alignleft">
+                        <p>All done!</p>
+                        <p>Your final score is: <span id="score">00</span></p>
+                        <label>Enter initials</label>
+                        <input id="initials-input" class="input">
+                        <button id="submit" class="secondary-btn">Submit</button>
+                    </div>
+                    <div id="high-Scores" class="card-alignleft">
+                        <p>High Scores Count: <span id="high-Scores-Count">0</span></p>
+                        <ul id="high-Scores-List"></ul>
+                        <button id="retake-Test" class="secondary-btn">Retake test</button>
+                        <button id="clear-High-Scores" class="secondary-btn">Clear High Scores</button>
+                        <button id="edit-Questions" class="secondary-btn">Admin</button>
+                    </div>
+                    <div id="admin-Questions" class="card-alignleft">
+                        <ul id="question-List"></ul>
+                        <button id="add-question" class="secondary-btn">Add</button>
+                        <button id="reset-question" class="secondary-btn">Reset</button>
 
 
-                    <div id="modal-container" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <h3>
-                                    Question:
-                                </h3>
-                                <textarea id="new-question" class="new-question" rows="5"></textarea>
-                                <div>
-                                    <button id="add-option" class="secondary-btn">Add Possible Answer</button>
-                                </div>
-                                <ul id="option-list"></ul>
-                                <div>
-                                    <label class="input">Answer</label>
-                                    <input id="new-answer" class="input" type="text"/>
-                                </div>
-                                <div>
-                                    <button id="save-question" class="secondary-btn">Save</button>
-                                    <button id="cancel-question" class="secondary-btn">Cancel</button>
+                        <div id="modal-container" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h3>
+                                        Question:
+                                    </h3>
+                                    <textarea id="new-question" class="new-question" rows="5"></textarea>
+                                    <div>
+                                        <button id="add-option" class="secondary-btn">Add Possible Answer</button>
+                                    </div>
+                                    <ul id="option-list"></ul>
+                                    <div>
+                                        <label class="input">Answer</label>
+                                        <input id="new-answer" class="input" type="text" />
+                                    </div>
+                                    <div>
+                                        <button id="save-question" class="secondary-btn">Save</button>
+                                        <button id="cancel-question" class="secondary-btn">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <!-- Semantic footer -->
+        <footer class="footer">
+            <!-- div for social media -->
+            <div class="copyright-social-media">
+                <span class="navbar-brand">&#169; 2020 - Chris Mckeown - </span>
+                <a href="https://www.linkedin.com/in/chrisjmckeown/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/ChrisMckeown6" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://www.facebook.com/christopher.j.mckeown.3" target="_blank"><i
+                        class="fab fa-facebook-square"></i></a>
+                <a href="https://github.com/chrisjmckeown" target="_blank"> <i class="fab fa-github-square"></i></a>
+            </div>
+        </footer>
     </div>
     <script src="Assets/Javascript/script.js"></script>
 </body>

@@ -5,6 +5,7 @@
 * [Technologies Utilized](#Technologies-Utilized)
 * [Code Quiz Link](#Code-Quiz-Link)
 * [Contact](#Contact)
+* [License](#License)
 
 ## Description
 This is a timed multiple-choice quiz on JavaScript fundamentals that stores the highest scores.
@@ -64,3 +65,7 @@ Primary technologies:
 ## Contact
 
 * Please contact me at: chris.j.mckeown@hotmail.com
+
+## License
+
+* See license here: <a href="https://github.com/chrisjmckeown/Code_Quiz/blob/master/LICENSE" target="_blank">license agreement</a>

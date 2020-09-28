@@ -54,14 +54,14 @@ h1{
 }
 
 .wrapper {
+  margin: 0 auto;
+  max-width: 800px;
   padding-top: 60px;
-  padding-left: 70px;
-  padding-right: 70px;
   padding-bottom: 10px;
 }
 
 /* Header */
-header {
+.header {
   text-align: center;
   font-size: 1.2rem;
   padding: 0px;
@@ -82,8 +82,6 @@ header {
   border-radius: 25px;
   box-shadow: var(--shadow) 0px 2px 8px 0px;
   font-size: 1.2rem;
-  margin: 0 auto;
-  max-width: 800px;
   padding: 20px;
 }
 
@@ -211,12 +209,35 @@ li button:hover {
   width: 100%;
 }
 
+/* styling the footer */
+.footer{
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-color: var(--card-colour);
+}
+/* setting footer styles */
+.copyright-social-media {
+  text-align: center;
+}
+
+/* social media div */
+.footer, .footer .copyright-social-media a{
+  font-size: 20px;
+  color: white;
+}
+.footer .copyright-social-media a{
+  padding-right:10px;
+}
+.footer .copyright-social-media a:hover{
+  color: black;
+}
 /* media adjustments to work on phone, ipad and PC */
 @media (max-width: 1024px) {
   .wrapper {
     padding-top: 60px;
-    padding-left: 130px;
-    padding-right: 130px;
     padding-bottom: 10px;
   }
 }
@@ -224,8 +245,6 @@ li button:hover {
 @media (max-width: 768px) {
   .wrapper {
     padding-top: 60px;
-    padding-left: 70px;
-    padding-right: 70px;
     padding-bottom: 10px;
   }
 
@@ -243,8 +262,6 @@ li button:hover {
   
   .wrapper {
     padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
     padding-bottom: 10px;
   }
 
